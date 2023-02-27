@@ -4,11 +4,11 @@ import {getPosts} from "~/models/post.server";
 
 export const loader = async () => {
     const posts = await getPosts();
-    return json(posts);
+    return json({posts});
 };
 
 export default function Posts() {
-    const posts = useLoaderData<typeof loader>();
+    const {posts} = useLoaderData<typeof loader>();
 
     return (
         <main>
